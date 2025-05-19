@@ -18,11 +18,12 @@ add_rules("mode.debug", "mode.releasedbg")
 add_rules("plugin.vsxmake.autoupdate")
 
 -- set policies
+set_policy("build.optimization.lto", true)
 set_policy("package.requires_lock", true)
 
 -- set configs
-set_config("skyrim_ae", true)
 set_config("rex_json", true)
+set_config("skyrim_ae", true)
 
 -- targets
 target("BakaWorldMapFilter")
@@ -40,3 +41,6 @@ target("BakaWorldMapFilter")
     add_headerfiles("src/**.h")
     add_includedirs("src")
     set_pcxxheader("src/pch.h")
+
+    -- add extra files
+    add_extrafiles(".clang-format")
